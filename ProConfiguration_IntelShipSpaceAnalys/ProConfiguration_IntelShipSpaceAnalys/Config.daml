@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArcGIS defaultAssembly="ProConfiguration_IntelShipSpaceAnalys.dll"
+        defaultNamespace="ProConfiguration_IntelShipSpaceAnalys"
+        xmlns="http://schemas.esri.com/DADF/Registry"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///D:/ArcPro/bin/ArcGIS.Desktop.Framework.xsd">
+
+  <AddInInfo id="{5417c9b0-b121-433a-9675-9661e102d34d}" version="1.0" desktopVersion="2.4.19948">
+    <Name>ProConfiguration_IntelShipSpaceAnalys</Name>
+    <Description>ProConfiguration_IntelShipSpaceAnalys description</Description>
+    <Image>Images\AddinDesktop32.png</Image>
+    <Author>adma</Author>
+    <Company>Acme</Company>
+    <Date>2020/6/15 15:50:34, 2020</Date>
+    <Subject>Framework</Subject>
+    <!-- Note subject can be one or more of these topics:
+                    Content, Framework, Editing, Geodatabase, Geometry, Geoprocessing, Layouts, Map Authoring, Map Exploration -->
+  </AddInInfo>
+
+  <Configuration>
+    <ConfigurationManager className="ConfigurationManager1"/>
+  </Configuration>
+
+  <modules>
+    <insertModule id="ProConfiguration_IntelShipSpaceAnalys_Module" className="Module1" autoLoad="false" caption="Module1">
+      <!-- uncomment to have the control hosted on a separate tab-->
+      <tabs>
+        <tab id="ProConfiguration_IntelShipSpaceAnalys_Tab1" caption="航行空间分析" keytip="T0" insert="before">
+          <group refID="ProConfiguration_IntelShipSpaceAnalys_Group1"/>
+          <group refID="ProConfiguration_IntelShipSpaceAnalys_Group2"/>
+        </tab>
+      </tabs>
+
+      <groups>
+        <group id="ProConfiguration_IntelShipSpaceAnalys_Group1" caption="船舶会遇" appearsOnAddInTab="false" keytip="T1_1">
+          <!--<buttonPalette refID="ProConfiguration_GISTDataBase_BPcatalog" />-->
+          <button refID="ProConfiguration_IntelShipSpaceAnalys_btnEucDistance" size="large" />
+          <button refID="ProConfiguration_IntelShipSpaceAnalys_btnEucDirection" size="large" />
+          <button refID="ProConfiguration_IntelShipSpaceAnalys_btnCreateThiessenPolygons" size="large" />
+        </group>
+      </groups>
+      <groups>
+        <group id="ProConfiguration_IntelShipSpaceAnalys_Group2" caption="船舶航线" appearsOnAddInTab="false" keytip="T1_1">
+          <!--<buttonPalette refID="ProConfiguration_IntelShipSpaceAnalys_BPcatalog" />-->
+          <button refID="ProConfiguration_IntelShipSpaceAnalys_btnObstacleExtraction" size="large" />
+          <button refID="ProConfiguration_IntelShipSpaceAnalys_btnAISConform" size="middle" />
+          <button refID="ProConfiguration_IntelShipSpaceAnalys_btnEditCourse" size="middle" />
+        </group>
+      </groups>
+      <controls>
+        <!-- add your controls here -->
+        <button id="ProConfiguration_IntelShipSpaceAnalys_btnEucDistance" caption="欧式距离分析" assembly="ProConfiguration_IntelShipSpaceAnalys.dll" className="btnEucDistance" loadOnClick="true" smallImage="Images\btnEucDistance.png" largeImage="Images\btnEucDistance.png">
+          <tooltip heading="提示">船舶会遇安全欧式距离分析<disabledText /></tooltip>
+        </button>
+        <button id="ProConfiguration_IntelShipSpaceAnalys_btnEucDirection" caption="欧式方向分析" assembly="ProConfiguration_IntelShipSpaceAnalys.dll" className="btnEucDirection" loadOnClick="true" smallImage="Images\btnEucDirection.png" largeImage="Images\btnEucDirection.png">
+          <tooltip heading="提示">
+            船舶会遇安全欧式方向分析<disabledText />
+          </tooltip>
+        </button>
+        <button id="ProConfiguration_IntelShipSpaceAnalys_btnCreateThiessenPolygons" caption="创建泰森多边形" assembly="ProConfiguration_IntelShipSpaceAnalys.dll" className="btnCreateThiessenPolygons" loadOnClick="true" smallImage="Images\btnCreateThiessenPolygons.png" largeImage="Images\btnCreateThiessenPolygons.png">
+          <tooltip heading="提示">
+            船舶会遇安全泰森多边形分析<disabledText />
+          </tooltip>
+        </button>
+        <button id="ProConfiguration_IntelShipSpaceAnalys_btnObstacleExtraction" caption="碍航物提取" assembly="ProConfiguration_IntelShipSpaceAnalys.dll" className="btnObstacleExtraction" loadOnClick="true" smallImage="Images\btnObstacleExtraction.png" largeImage="Images\btnObstacleExtraction.png">
+          <tooltip heading="提示">
+            提取计划航线上的碍航物信息<disabledText />
+          </tooltip>
+        </button>
+        <button id="ProConfiguration_IntelShipSpaceAnalys_btnAISConform" caption="转换船位数据" assembly="ProConfiguration_IntelShipSpaceAnalys.dll" className="btnAISConform" loadOnClick="true" smallImage="Images\btnAISConform.png" largeImage="Images\btnAISConform.png">
+          <tooltip heading="提示">
+            将记录AIS的表数据转化为shpfile<disabledText />
+          </tooltip>
+        </button>
+        <button id="ProConfiguration_IntelShipSpaceAnalys_btnEditCourse" caption="编辑航线" assembly="ProConfiguration_IntelShipSpaceAnalys.dll" className="btnEditCourse" loadOnClick="true" smallImage="Images\btnEditCourse.png" largeImage="Images\btnEditCourse.png">
+          <tooltip heading="提示">
+            创建、编辑、删除航线<disabledText />
+          </tooltip>
+        </button>
+      </controls>
+      <dockPanes>
+        <dockPane id="ProConfiguration_IntelShipSpaceAnalys_DockPane_DPObstacleExtraction" caption="碍航物提取" assembly="ProConfiguration_IntelShipSpaceAnalys.dll" className="DPObstacleExtractionViewModel" dock="group" dockWith="esri_core_projectDockPane">
+          <content assembly="ProConfiguration_IntelShipSpaceAnalys.dll" className="DPObstacleExtractionView" />
+        </dockPane>
+      </dockPanes>
+      <panes>
+        
+      </panes>
+    </insertModule>
+  </modules>
+</ArcGIS>

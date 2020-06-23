@@ -1,0 +1,12 @@
+1、本机安装VS2017(WPF) 和 ArcPro（版本任意）
+2、进入ArcPro的安装目录：（如：C:\Program Files\ArcGIS\Pro\bin）
+2.1新建文件夹ShipAnalyze，用以存放扩展文件，修改安全权限，右键属性——“安全”页面——用户添加“everyone”。
+2.2编辑ArcGISPro.exe.config，找到<probing节点，修改如下：
+<probing privatePath="extensions\core;ShipAnalyze"/>
+3、工程说明：
+ProConfiguration_IntelShipSpaceAnalys pro配置主工程，针对不同版本的pro开发，需要修改Config.daml文件中的desktopVersion。该工程编译后，会自动生成文件.proConfigX到目录C:\Users\admin\Documents\ArcGIS\AddIns\ArcGISPro\Configurations。
+4、第三方引用：使用Nuget安装如下包：
+MVVMLight
+LiveCharts
+5、配置文件（ShipAnalyze文件夹下）
+自定义配置文件ProConfig.xml：目前配置了默认工程的路径

@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5417C9B0-B121-433A-9675-9661E102D34D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProConfiguration_IntelShipSpaceAnalys</RootNamespace>
+    <AssemblyName>ProConfiguration_IntelShipSpaceAnalys</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>D:\ArcPro\bin\ShipAnalyze\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <StartAction>Program</StartAction>
+    <StartProgram>D:\ArcPro\bin\ArcGISPro.exe</StartProgram>
+    <StartArguments>/config:"ProConfiguration_IntelShipSpaceAnalys"</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ArcGISFolder>$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\ESRI\ArcGISPro', 'InstallDir', null, RegistryView.Registry64))</ArcGISFolder>
+    <ArcGISFolder Condition="'$(ArcGISFolder)' == ''">$(registry:HKEY_CURRENT_USER\SOFTWARE\ESRI\ArcGISPro@InstallDir)</ArcGISFolder>
+  </PropertyGroup>
+  <ItemGroup>
+    <AddInContent Include="Config.daml" />
+    <AddInContent Include="Images\ConfigXDesktop16.png" />
+    <AddInContent Include="Images\ConfigXDesktop32.png" />
+    <AddInContent Include="DarkImages\ConfigXDesktop16.png" />
+    <AddInContent Include="DarkImages\ConfigXDesktop32.png" />
+    <Resource Include="Images\FolderOpenState32.png" />
+    <Resource Include="Images\favicon.ico" />
+    <Resource Include="Images\background.jpg" />
+    <Resource Include="DarkImages\CogWheel24.png" />
+    <AddInContent Include="Images\CogWheel24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\Button\btnObstacleExtraction.cs" />
+    <Compile Include="Controls\Button\btnAISConform.cs" />
+    <Compile Include="Controls\Button\btnEditCourse.cs" />
+    <Compile Include="Controls\Button\btnCreateThiessenPolygons.cs" />
+    <Compile Include="Controls\Button\btnEucDirection.cs" />
+    <Compile Include="Controls\Button\btnEucDistance.cs" />
+    <Compile Include="Common\CommonMethod.cs" />
+    <Compile Include="Common\GeoDataTool.cs" />
+    <Compile Include="Common\LogAPI.cs" />
+    <Compile Include="Common\ProConfigHelper.cs" />
+    <Compile Include="Common\ConstDefintion.cs" />
+    <Compile Include="Controls\View\DPObstacleExtractionView.xaml.cs">
+      <DependentUpon>DPObstacleExtractionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ViewModel\DPObstacleExtractionViewModel.cs" />
+    <Compile Include="Module1.cs" />
+    <Compile Include="ConfigurationManager1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Page Include="Controls\Theme\CustomStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\View\DPObstacleExtractionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\SplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="Model\Ship.cs" />
+    <Compile Include="UI\OnMouseClick.cs" />
+    <Compile Include="UI\SplashScreen.xaml.cs">
+      <DependentUpon>SplashScreen.xaml</DependentUpon>
+    </Compile>
+    <Page Include="UI\AboutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="UI\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="UI\StartPage.xaml">
+      <SubType>Designer</SubType>
+      <DependentUpon>StartPage.xaml.cs</DependentUpon>
+    </Page>
+    <Compile Include="UI\StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\StartPageViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="ArcGIS.Desktop.Framework">
+      <HintPath>D:\ArcPro\bin\ArcGIS.Desktop.Framework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Core">
+      <HintPath>D:\ArcPro\bin\ArcGIS.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.Core">
+      <HintPath>D:\ArcPro\bin\Extensions\Core\ArcGIS.Desktop.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.Mapping">
+      <HintPath>D:\ArcPro\bin\Extensions\Mapping\ArcGIS.Desktop.Mapping.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.Catalog">
+      <HintPath>D:\ArcPro\bin\Extensions\Catalog\ArcGIS.Desktop.Catalog.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.Editing">
+      <HintPath>D:\ArcPro\bin\Extensions\Editing\ArcGIS.Desktop.Editing.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.Extensions">
+      <HintPath>D:\ArcPro\bin\Extensions\DesktopExtensions\ArcGIS.Desktop.Extensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.GeoProcessing">
+      <HintPath>D:\ArcPro\bin\Extensions\GeoProcessing\ArcGIS.Desktop.GeoProcessing.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.Layouts">
+      <HintPath>D:\ArcPro\bin\Extensions\Layout\ArcGIS.Desktop.Layouts.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.Shared.Wpf">
+      <HintPath>D:\ArcPro\bin\ArcGIS.Desktop.Shared.Wpf.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.Ribbon.Wpf">
+      <HintPath>D:\ArcPro\bin\ArcGIS.Desktop.Ribbon.Wpf.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.DataGrid.Contrib.Wpf">
+      <HintPath>D:\ArcPro\bin\ArcGIS.Desktop.DataGrid.Contrib.Wpf.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ArcGIS.Desktop.Resources">
+      <HintPath>D:\ArcPro\bin\ArcGIS.Desktop.Resources.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.ItemIndex">
+      <HintPath>D:\ArcPro\bin\ESRI.ArcGIS.ItemIndex.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Images\btnEucDistance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\Xaml\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Images\cvt2gdb.png" />
+    <AddInContent Include="Images\cvt2raster.png" />
+    <AddInContent Include="Images\cvt2shp.png" />
+    <AddInContent Include="Images\cvt4raster.png" />
+    <AddInContent Include="Images\cvt4wfs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Images\btnExtractFC.png" />
+    <AddInContent Include="Images\btnExtractTable.png" />
+    <AddInContent Include="Images\btnIDMAddRaster.png" />
+    <AddInContent Include="Images\btnIDMAddRasterBatch.png" />
+    <AddInContent Include="Images\btnIDMAddressIndex.png" />
+    <AddInContent Include="Images\btnIDMColorDefineNoData.png" />
+    <AddInContent Include="Images\btnIDMColorMix.png" />
+    <AddInContent Include="Images\btnIDMDataAdd.png" />
+    <AddInContent Include="Images\btnIDMDataAnalysis.png" />
+    <AddInContent Include="Images\btnIDMDataChange.png" />
+    <AddInContent Include="Images\btnIDMDataCreate.png" />
+    <AddInContent Include="Images\btnIDMDataDel.png" />
+    <AddInContent Include="Images\btnIDMDataExtent.png" />
+    <AddInContent Include="Images\btnIDMDataExtractBetwLine.png" />
+    <AddInContent Include="Images\btnIDMDataExtractExtent.png" />
+    <AddInContent Include="Images\btnIDMDataPatialUpdate.png" />
+    <AddInContent Include="Images\btnIDMDataVersionSaveAs.png" />
+    <AddInContent Include="Images\btnIDMDataViewByTime.png" />
+    <AddInContent Include="Images\btnAISConform.png" />
+    <AddInContent Include="Images\btnIDMManagerOfFile.png" />
+    <AddInContent Include="Images\btnIDMManagerOfRegion.png" />
+    <AddInContent Include="Images\btnIDMPixelSize.png" />
+    <AddInContent Include="Images\btnProCatalog.png" />
+    <AddInContent Include="Images\btnRelateGeoAndTable.png" />
+    <AddInContent Include="Images\btnTileAutoUpdate.png" />
+    <AddInContent Include="Images\btnTilePatial.png" />
+    <AddInContent Include="Images\btnTileResourceM.png" />
+    <AddInContent Include="Images\btnTileScale.png" />
+    <AddInContent Include="Images\btnTileSchemeManager.png" />
+    <AddInContent Include="Images\btnTileStyle.png" />
+    <AddInContent Include="Images\btnTileVector.png" />
+    <AddInContent Include="Images\btnTileView.png" />
+    <AddInContent Include="Images\btnTileYear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Images\btn3DDataAna.png" />
+    <AddInContent Include="Images\btnObstacleExtraction.png" />
+    <AddInContent Include="Images\btn3DDataConvert.png" />
+    <AddInContent Include="Images\btn3DDataCorConvert.png" />
+    <AddInContent Include="Images\btn3DDataShow.png" />
+    <AddInContent Include="Images\btn3DSceneAna.png" />
+    <AddInContent Include="Images\btn3DScenePreView.png" />
+    <AddInContent Include="Images\btn3DScenePublish.png" />
+    <AddInContent Include="Images\btn3DSceneSave.png" />
+    <AddInContent Include="Images\btnCheckGeometry.png" />
+    <AddInContent Include="Images\btnCheckRuleChange.png" />
+    <AddInContent Include="Images\btnCheckRuleDefine.png" />
+    <AddInContent Include="Images\btnCheckRuleDelete.png" />
+    <AddInContent Include="Images\btnCheckRuleInspect.png" />
+    <AddInContent Include="Images\btnCheckRuleQuery.png" />
+    <AddInContent Include="Images\btnCheckRules.png" />
+    <AddInContent Include="Images\btnCheckScheme.png" />
+    <AddInContent Include="Images\btnCheckTask.png" />
+    <AddInContent Include="Images\btnCheckTemplate.png" />
+    <AddInContent Include="Images\btnCheckToplogy.png" />
+    <AddInContent Include="Images\btnClipFC.png" />
+    <AddInContent Include="Images\btnCorConvert.png" />
+    <AddInContent Include="Images\btnEditCourse.png" />
+    <AddInContent Include="Images\btnCorProjectConvert.png" />
+    <AddInContent Include="Images\btnCreateThiessenPolygons.png" />
+    <AddInContent Include="Images\btnCustomExtract.png" />
+    <AddInContent Include="Images\btnDataClear.png" />
+    <AddInContent Include="Images\btnDataConn.png" />
+    <AddInContent Include="Images\btnDataEdit.png" />
+    <AddInContent Include="Images\btnDataExtract.png" />
+    <AddInContent Include="Images\btnDataOpenCatalog.png" />
+    <AddInContent Include="Images\btnDataOriModelManager.png" />
+    <AddInContent Include="Images\btnDataOriModelView.png" />
+    <AddInContent Include="Images\btnDataPrepareEditField.png" />
+    <AddInContent Include="Images\btnDataPrepareEditFieldEx.png" />
+    <AddInContent Include="Images\btnDataRegist.png" />
+    <AddInContent Include="Images\btnDataSafeInfo.png" />
+    <AddInContent Include="Images\btnDataSafeProtect.png" />
+    <AddInContent Include="Images\btnDataSafeRuleSet.png" />
+    <AddInContent Include="Images\btnDataStatistics.png" />
+    <AddInContent Include="Images\btnDefine3DBasemap.png" />
+    <AddInContent Include="Images\btnDefineClass.png" />
+    <AddInContent Include="Images\btnDefineImageBasemap.png" />
+    <AddInContent Include="Images\btnDefineStructureGeo.png" />
+    <AddInContent Include="Images\btnDefineStructureTable.png" />
+    <AddInContent Include="Images\btnDefineVectorBasemap.png" />
+    <AddInContent Include="Images\btnDIDatabaseInterface.png" />
+    <AddInContent Include="Images\btnDIDataInput.png" />
+    <AddInContent Include="Images\btnDIMapArchiveDefine.png" />
+    <AddInContent Include="Images\btnDIMapArchiveIndex.png" />
+    <AddInContent Include="Images\btnDIMapCacheManager.png" />
+    <AddInContent Include="Images\btnDIMapCreateMmpk.png" />
+    <AddInContent Include="Images\btnDIMapCreateTpk.png" />
+    <AddInContent Include="Images\btnDIMapCreateVtpk.png" />
+    <AddInContent Include="Images\btnDIMapCreateVtpkIndex.png" />
+    <AddInContent Include="Images\btnDIMapDataPublish.png" />
+    <AddInContent Include="Images\btnDIMapHandleSet.png" />
+    <AddInContent Include="Images\btnDIMapMxdApply.png" />
+    <AddInContent Include="Images\btnDIMapMxdSaveAs.png" />
+    <AddInContent Include="Images\btnDIMapSearchDefine.png" />
+    <AddInContent Include="Images\btnDIMapSearchView.png" />
+    <AddInContent Include="Images\btnDISymbolManager.png" />
+    <AddInContent Include="Images\btnEucDirection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Images\3danalysis.png" />
+    <AddInContent Include="Images\3Dcatalog.png" />
+    <AddInContent Include="Images\3dConvert.png" />
+    <AddInContent Include="Images\3Dimport.png" />
+    <AddInContent Include="Images\3dsearch.png" />
+    <AddInContent Include="Images\3dvisibility.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\menucopy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\reflesh.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <!--
+  PackageAction can be:
+  BuildDefault: ArcGIS Pro is required. An esriConfigX package is created and copied to ArcGIS Pro Configurations folder.
+  BuildZipPostProcess: ArcGIS Pro install is NOT required to build the configuration.  An esriConfigX package is created in your output folder.
+  BuildNoPostProcess:  ArcGIS Pro install is NOT required to build the configuration.  An esriConfigX package is NOT created.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PackageAction>BuildDefault</PackageAction>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PackageAction>BuildDefault</PackageAction>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageType>Configuration</PackageType>
+  </PropertyGroup>
+  <UsingTask AssemblyFile="D:\ArcPro\bin\proapp-sdk-MSBuild.dll" TaskName="proapp_sdk_MSBuild.PackageAddIn" />
+  <UsingTask AssemblyFile="D:\ArcPro\bin\proapp-sdk-MSBuild.dll" TaskName="proapp_sdk_MSBuild.CleanAddIn" />
+  <UsingTask AssemblyFile="D:\ArcPro\bin\proapp-sdk-MSBuild.dll" TaskName="proapp_sdk_MSBuild.ConvertToRelativePath" />
+  <!--<Import Project="Esri.ArcGISPro.Extensions.targets" Condition="Exists('Esri.ArcGISPro.Extensions.targets')" />-->
+  <Import Project="D:\ArcPro\bin\Esri.ProApp.SDK.Desktop.targets" Condition="Exists('D:\ArcPro\bin\Esri.ProApp.SDK.Desktop.targets') AND !Exists('Esri.ArcGISPro.Extensions.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <!--<Target Name="BeforeBuild">
+    <Error Text="D:\ArcPro\bin\Esri.ProApp.SDK.Desktop.targets not found." Condition="!Exists('D:\ArcPro\bin\Esri.ProApp.SDK.Desktop.targets') AND !Exists('Esri.ArcGISPro.Extensions.targets')" />
+  </Target>-->
+</Project>

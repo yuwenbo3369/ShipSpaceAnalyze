@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+   <DefaultProject>F:\360MoveData\Users\adma\Documents\ArcGIS\Projects\IntelShipSpaceAnalys\IntelShipSpaceAnalys.aprx</DefaultProject>
+   <DefaultSDEConnection>F:\360MoveData\Users\adma\Documents\ArcGIS\Projects\DefaultProject\enterprise.sde</DefaultSDEConnection>
+   <Icons>
+   		<Icon DataType="1">../Images/FolderOpen.png</Icon>
+   		<Icon DataType="2" SubType="POINT">../Images/FolderOpen.png</Icon>
+   		<Icon DataType="2" SubType="LINE">../Images/FolderOpen.png</Icon>
+   		<Icon DataType="2" SubType="POLYGON">../Images/FolderOpen.png</Icon>
+   		<Icon DataType="3" SubType="">../Images/FolderOpen.png</Icon>
+   		<Icon DataType="4" SubType="PIX">../Images/FolderOpen.png</Icon>
+   		<Icon DataType="4" SubType="IMG">../Images/FolderOpen.png</Icon>
+   		<Icon DataType="5" SubType="">../Images/FolderOpen.png</Icon>
+   		<Icon DataType="6" SubType="">../Images/FolderOpen.png</Icon>
+   		<Icon DataType="7" SubType="">../Images/FolderOpen.png</Icon>
+   		<Icon DataType="9" SubType="">../Images/FolderOpen.png</Icon>
+   </Icons>
+</doc>
